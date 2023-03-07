@@ -28,11 +28,11 @@ pytest-cov = "^3.0.0"
 
 
 [tool.poetry.scripts]
-helloworld = "essembeh_tools.cli.helloworld:run"
-dispatch = "essembeh_tools.cli.dispatch:run"
-hrenamer = "essembeh_tools.cli.hrenamer:run"
-daterenamer = "essembeh_tools.cli.daterenamer:run"
 batxaran = "essembeh_tools.cli.batxaran:run"
+daterenamer = "essembeh_tools.cli.daterenamer:run"
+#dispatch = "essembeh_tools.cli.dispatch:run"
+helloworld = "essembeh_tools.cli.helloworld:run"
+hrenamer = "essembeh_tools.cli.hrenamer:run"
 remote-borg = "essembeh_tools.cli.remoteborg:run"
 
 
