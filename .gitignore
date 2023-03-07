@@ -1,0 +1,17 @@
+# Python
+__pycache__
+*.pyc
+
+# Generated
+/.coverage
+/coverage.xml
+/htmlcov/
+/dist/
+
+# IDE
+/.vscode/*
+!/.vscode/settings.json
+
+# temp files
+/samples/
+/.env
