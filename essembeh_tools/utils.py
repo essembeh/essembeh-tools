@@ -4,8 +4,6 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Generator, List, Optional, Tuple, Union
 
-import magic
-
 
 @contextmanager
 def parser_group(
@@ -17,17 +15,24 @@ def parser_group(
         yield parser.add_argument_group(name)
 
 
-def get_mime(file: Path) -> str:
+def get_mime(file: Path) -> Optional[str]:
     """
     Return the mime of a file
     """
     if not file.exists():
         raise FileNotFoundError(f"Cannot find file: {file}")
-    return magic.from_file(str(file.resolve()), mime=True)
+    try:
+        import magic
+
+        return magic.from_file(str(file.resolve()), mime=True)
+    except ImportError:
+        return None
 
 
 def guess_extension(file: Path) -> Optional[str]:
-    return mimetypes.guess_extension(get_mime(file))
+    mime = get_mime(file)
+    if mime is not None:
+        return mimetypes.guess_extension(mime)
 
 
 def plural(
