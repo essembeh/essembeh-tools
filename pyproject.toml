@@ -16,7 +16,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 colorama = "^0.4.5"
-python-magic = "^0.4.27"
+puremagic = "^1.15"
 
 
 [tool.poetry.dev-dependencies]

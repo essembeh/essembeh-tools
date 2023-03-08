@@ -1,8 +1,9 @@
-import mimetypes
 from argparse import _ActionsContainer
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Generator, List, Optional, Tuple, Union
+
+import puremagic
 
 
 @contextmanager
@@ -15,24 +16,8 @@ def parser_group(
         yield parser.add_argument_group(name)
 
 
-def get_mime(file: Path) -> Optional[str]:
-    """
-    Return the mime of a file
-    """
-    if not file.exists():
-        raise FileNotFoundError(f"Cannot find file: {file}")
-    try:
-        import magic
-
-        return magic.from_file(str(file.resolve()), mime=True)
-    except ImportError:
-        return None
-
-
 def guess_extension(file: Path) -> Optional[str]:
-    mime = get_mime(file)
-    if mime is not None:
-        return mimetypes.guess_extension(mime)
+    return puremagic.from_file(file)
 
 
 def plural(
