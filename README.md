@@ -7,6 +7,25 @@
 
 Collection of useful CLI tools.
 
+## age-source
+
+`age-source` decrypt given _age_ encypted file and run a new shell which _source_ it.
+
+```sh
+# there is no FOO in environment
+$ echo $FOO
+
+# use age-source to source an encrypted environment
+$ age-source ~/test.env.age -i ~/.age/key.txt
+🔐 Decrypt /home/seb/test.env.age with age -i /home/seb/.age/key.txt -d /home/seb/test.env.age
+Enter passphrase for identity file "/home/seb/.age/key.txt": ***************************
+$ emulate bash -c '. /tmp/tmpiht0lwf9/age.env'
+
+# PS1 has been updated to reflect the loaded environment, FOO is now declared
+(🔓 AGE:test.env.age) $ echo $FOO
+bar
+```
+
 ## batxaran
 
 `batxaran` is a _batch_ tool, to run a command _N_ times with different arguments:
@@ -33,7 +52,7 @@ OK firefox https://github.com
 OK firefox https://gitlab.com
 ```
 
-## daterenamer
+## date-renamer
 
 `daterenamer` simply renames photos or videos and add a prefix with the creation date from the _exif_ metadata.
 
@@ -47,6 +66,6 @@ OK firefox https://gitlab.com
 
 `hrenamer` renames files to unique names built from _sha1_ (or any _hash_ algo).
 
-# remoteborg
+# remote-borg
 
-`remoteborg` allows you to run _borg_ commands from a remote host via _ssh_ as _borg_ only support _push_, this a a _pull_-like implementation.
+`remote-borg` allows you to run _borg_ commands from a remote host via _ssh_ as _borg_ only support _push_, this a a _pull_-like implementation.

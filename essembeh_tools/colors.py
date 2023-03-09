@@ -29,6 +29,7 @@ class Icons(Enum):
     PACKAGE = "📦"
     THUMB_UP = "👍"
     TRASH = "🗑"
+    LOCK_AND_KEY = "🔐"
     LOCKED = "🔒"
     UNLOCKED = "🔓"
     FOLDER = "📂"

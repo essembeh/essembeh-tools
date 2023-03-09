@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "essembeh-tools"
-version = "0.1.1"
+version = "0.2.0"
 description = "Collection of command line tools written in Python"
 homepage = "https://github.com/essembeh/essembeh-tools"
 authors = ["Sébastien MB <seb@essembeh.org>"]
@@ -17,6 +17,8 @@ readme = "README.md"
 python = "^3.9"
 colorama = "^0.4.5"
 puremagic = "^1.15"
+shellingham = "^1.5.0.post1"
+pexpect = "^4.8.0"
 
 
 [tool.poetry.dev-dependencies]
@@ -28,13 +30,13 @@ pytest-cov = "^3.0.0"
 
 
 [tool.poetry.scripts]
-batxaran = "essembeh_tools.cli.batxaran:run"
-daterenamer = "essembeh_tools.cli.daterenamer:run"
 #dispatch = "essembeh_tools.cli.dispatch:run"
+age-source = "essembeh_tools.cli.age_source:run"
+batxaran = "essembeh_tools.cli.batxaran:run"
+date-renamer = "essembeh_tools.cli.date_renamer:run"
 helloworld = "essembeh_tools.cli.helloworld:run"
 hrenamer = "essembeh_tools.cli.hrenamer:run"
-remote-borg = "essembeh_tools.cli.remoteborg:run"
-
+remote-borg = "essembeh_tools.cli.remote_borg:run"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
