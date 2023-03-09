@@ -17,7 +17,8 @@ def parser_group(
 
 
 def guess_extension(file: Path) -> Optional[str]:
-    return puremagic.from_file(file)
+    out = puremagic.from_file(file)
+    return ".jpg" if out == ".jpeg" else out
 
 
 def plural(
