@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "essembeh-tools"
-version = "0.2.0"
+version = "0.2.1"
 description = "Collection of command line tools written in Python"
 homepage = "https://github.com/essembeh/essembeh-tools"
 authors = ["Sébastien MB <seb@essembeh.org>"]
@@ -30,11 +30,11 @@ pytest-cov = "^3.0.0"
 
 
 [tool.poetry.scripts]
-#dispatch = "essembeh_tools.cli.dispatch:run"
+dispatch = "essembeh_tools.cli.dispatch:run"
 age-source = "essembeh_tools.cli.age_source:run"
 batxaran = "essembeh_tools.cli.batxaran:run"
 date-renamer = "essembeh_tools.cli.date_renamer:run"
-helloworld = "essembeh_tools.cli.helloworld:run"
+#helloworld = "essembeh_tools.cli.helloworld:run"
 hrenamer = "essembeh_tools.cli.hrenamer:run"
 remote-borg = "essembeh_tools.cli.remote_borg:run"
 
