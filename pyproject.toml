@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "essembeh-tools"
-version = "0.2.1"
+version = "0.3.0"
 description = "Collection of command line tools written in Python"
 homepage = "https://github.com/essembeh/essembeh-tools"
 authors = ["Sébastien MB <seb@essembeh.org>"]
