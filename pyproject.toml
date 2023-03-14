@@ -37,6 +37,7 @@ date-renamer = "essembeh_tools.cli.date_renamer:run"
 dispatch = "essembeh_tools.cli.dispatch:run"
 ezfuse = "essembeh_tools.cli.ezfuse:run"
 hrenamer = "essembeh_tools.cli.hrenamer:run"
+pyfdupes = "essembeh_tools.cli.pyfdupes:run"
 remote-borg = "essembeh_tools.cli.remote_borg:run"
 
 [build-system]

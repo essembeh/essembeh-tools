@@ -66,6 +66,10 @@ OK firefox https://gitlab.com
 
 `hrenamer` renames files to unique names built from _sha1_ (or any _hash_ algo).
 
+# pyfdupes
+
+`pyfdupes` find duplicate files and remove extra copies, it uses `fdupes` internally.
+
 # remote-borg
 
 > See [specific tool documentation](doc/remoteborg.md)
