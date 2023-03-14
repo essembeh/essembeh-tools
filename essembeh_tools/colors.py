@@ -2,9 +2,10 @@
 gnome-extensions-cli
 """
 
+import shlex
 from enum import Enum
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional, Union
 
 from colorama import Back, Fore, Style
 
@@ -34,6 +35,7 @@ class Icons(Enum):
     UNLOCKED = "🔓"
     FOLDER = "📂"
     SHIELD = "🛡"
+    EXEC = "⚡"
 
     def __str__(self):
         return self.value
@@ -108,5 +110,15 @@ class Label:
         return Label.folder(path.parent) + Color.MAGENTA(path.name, style="bright")
 
     @staticmethod
-    def error(error: BaseException) -> str:
-        return Color.RED(error)
+    def error(error: BaseException, message: Optional[str] = None) -> str:
+        out = ""
+        if message is not None:
+            out += Color.RED(message + ": ")
+        out += Color.RED(error)
+        return out
+
+    @staticmethod
+    def command(command: Union[str, List[str]]) -> str:
+        if isinstance(command, List):
+            return Color.YELLOW(*map(shlex.quote, map(str, command)))
+        return Color.YELLOW(command)

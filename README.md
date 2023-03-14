@@ -1,13 +1,7 @@
 ![Github](https://img.shields.io/github/tag/essembeh/essembeh-tools.svg)
-![PyPi](https://img.shields.io/pypi/v/essembeh-tools.svg)
-![Python](https://img.shields.io/pypi/pyversions/essembeh-tools.svg)
 ![CI](https://github.com/essembeh/essembeh-tools/actions/workflows/poetry.yml/badge.svg)
 
-# essembeh-tools
-
-Collection of useful CLI tools.
-
-## age-source
+# age-source
 
 `age-source` decrypt given _age_ encypted file and run a new shell which _source_ it.
 
@@ -26,7 +20,7 @@ $ emulate bash -c '. /tmp/tmpiht0lwf9/age.env'
 bar
 ```
 
-## batxaran
+# batxaran
 
 `batxaran` is a _batch_ tool, to run a command _N_ times with different arguments:
 
@@ -52,20 +46,28 @@ OK firefox https://github.com
 OK firefox https://gitlab.com
 ```
 
-## date-renamer
+# date-renamer
 
 `daterenamer` simply renames photos or videos and add a prefix with the creation date from the _exif_ metadata.
 
 > Useful to organise photos and videos from phones.
 
-## dispatch
+# dispatch
 
 `dispatch` copy files into folders if the given folder name is a prefix of the filename.
 
-## hrenamer
+# ezfuse
+
+> See [specific tool documentation](doc/ezfuse.md)
+
+`ezfuse` is a tool handle temporary mountpoints for _Fuse_ filesystems.
+
+# hrenamer
 
 `hrenamer` renames files to unique names built from _sha1_ (or any _hash_ algo).
 
 # remote-borg
+
+> See [specific tool documentation](doc/remoteborg.md)
 
 `remote-borg` allows you to run _borg_ commands from a remote host via _ssh_ as _borg_ only support _push_, this a a _pull_-like implementation.

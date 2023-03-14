@@ -33,3 +33,14 @@ def plural(
     if items is not None:
         count = len(items)
     return plur if count > 1 else sing
+
+
+def sizeof_fmt(num: float, suffix="B"):
+    """
+    simply display a human readable size
+    """
+    for unit in ("", "K", "M", "G"):
+        if abs(num) < 1024:
+            return f"{num:0.1f} {unit}{suffix}"
+        num /= 1024.0
+    raise ValueError()
