@@ -39,6 +39,7 @@ ezfuse = "essembeh_tools.cli.ezfuse:run"
 hrenamer = "essembeh_tools.cli.hrenamer:run"
 pyfdupes = "essembeh_tools.cli.pyfdupes:run"
 remote-borg = "essembeh_tools.cli.remote_borg:run"
+virenamer = "essembeh_tools.cli.virenamer:run"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

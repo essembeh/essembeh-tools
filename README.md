@@ -75,3 +75,9 @@ OK firefox https://gitlab.com
 > See [specific tool documentation](doc/remoteborg.md)
 
 `remote-borg` allows you to run _borg_ commands from a remote host via _ssh_ as _borg_ only support _push_, this a a _pull_-like implementation.
+
+# virenamer
+
+> See [specific tool documentation](doc/virenamer.md)
+
+`virenamer` is a tool to rename files by editing their paths directly in `vi` (or in any other editor).

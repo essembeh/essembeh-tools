@@ -11,33 +11,7 @@ Features:
 - you can open your _file browser_ in the mounted directory
 - you can exit the _EzFuse_ and keep the mountpoint mounted
 
-![demo.gif](images/demo.gif)
-
-# Install
-
-Install from [Pypi](https://pypi.org/project/ezfuse/)
-
-```sh
-$ pip3 install ezfuse
-```
-
-Or install latest version using pip and poetry
-
-```sh
-$ pip3 install poetry
-$ pip3 install git+https://github.com/essembeh/ezfuse
-```
-
-Or setup a development environment
-
-```sh
-$ pip3 install poetry
-$ git clone https://github.com/essembeh/ezfuse
-$ cd ezfuse
-$ poetry install
-$ poetry shell
-(.venv) $ ezfuse --version
-```
+![demo.gif](ezfuse-images/demo.gif)
 
 # Usage
 
@@ -60,7 +34,7 @@ u: umount
 
 ```
 
-![dialog.png](images/dialog.png)
+![dialog.png](ezfuse-images/dialog.png)
 
 When exiting _EzFuse_ using `q`, the filesystem will automatically be unmounted and the temporary directory removed.
 
