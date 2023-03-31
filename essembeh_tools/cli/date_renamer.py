@@ -46,7 +46,7 @@ def get_create_date(file: Path):
     if not file.exists():
         raise IOError(f"Cannot find {file}")
 
-    with EXIFTOOL.new_command(file) as cmd:
+    with EXIFTOOL.with_command(file) as cmd:
         payload = json.loads(cmd.check_output())
 
         assert isinstance(payload, list) and len(payload) == 1

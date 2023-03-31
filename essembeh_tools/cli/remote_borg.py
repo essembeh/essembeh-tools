@@ -112,7 +112,7 @@ def run():
     )
 
     # Build the command line
-    with SSH.new_command() as command:
+    with SSH.with_command() as command:
         # enables forwarding of the authentication agent connection
         command.append("-A")
         # custom port

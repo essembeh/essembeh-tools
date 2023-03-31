@@ -29,7 +29,7 @@ def find_duplicates(folders: List[Path], quiet: bool = False) -> List[Tuple[Path
     Use fdupes to find supplicates files, and yield the list of files.
     Yielded files are sorted.
     """
-    with FDUPES.new_command() as cmd:
+    with FDUPES.with_command() as cmd:
         cmd.append_if(quiet, "--quiet")
         cmd += folders
 

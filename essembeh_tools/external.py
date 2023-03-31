@@ -55,13 +55,16 @@ class ExternalTool:
             check_call([out, self.check_arg], stdout=DEVNULL, stderr=DEVNULL)
         return out
 
-    @contextmanager
-    def new_command(self, *args) -> Generator[ExternalToolCommand, None, None]:
+    def command(self, *args) -> ExternalToolCommand:
         out = ExternalToolCommand()
         out.append(self.binary)
         out += self.common_args
         out += args
-        yield out
+        return out
+
+    @contextmanager
+    def with_command(self, *args) -> Generator[ExternalToolCommand, None, None]:
+        yield self.command(*args)
 
 
 FF_PROBE = ExternalTool("ffprobe", binary_envvar="FFPROBE_BIN", check_arg="-version")

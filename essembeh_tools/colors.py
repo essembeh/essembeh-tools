@@ -9,6 +9,8 @@ from typing import List, Optional, Union
 
 from colorama import Back, Fore, Style
 
+from .external import ExternalToolCommand
+
 
 class Icons(Enum):
     """
@@ -119,7 +121,7 @@ class Label:
         return out
 
     @staticmethod
-    def command(command: Union[str, List[str]]) -> str:
+    def command(command: Union[str, List[str], ExternalToolCommand]) -> str:
         if isinstance(command, List):
             return Color.YELLOW(*map(shlex.quote, map(str, command)))
         return Color.YELLOW(command)
