@@ -11,7 +11,7 @@ from tempfile import TemporaryDirectory
 import pexpect
 from shellingham import detect_shell
 
-from ..colors import Icons, Label
+from ..colors import Color, Icons, Label
 from ..external import ExternalTool
 
 AGE = ExternalTool("age", check_arg="--version")
@@ -31,6 +31,12 @@ def run():
     parser = ArgumentParser()
     parser.add_argument(
         "-e", "--edit", action="store_true", help="edit file with default $EDITOR"
+    )
+    parser.add_argument(
+        "-q",
+        "--quiet",
+        action="store_true",
+        help="do not print first line if it is a comment",
     )
     parser.add_argument(
         "-f",
@@ -91,6 +97,9 @@ def run():
                 f"Decrypt {Label.file(args.env_file)}: {Label.command(age_decrypt)}",
             )
             clear_text = age_decrypt.check_output().decode(encoding="utf8")
+            # display first line if it is a comment
+            if not args.quiet and clear_text.startswith("#"):
+                print(Icons.HINT, Color.CYAN(clear_text.splitlines()[0]))
             # write it to a temp file and append the new PS1
             tmp_file.write_text(
                 clear_text
