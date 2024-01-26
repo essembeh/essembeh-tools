@@ -21,6 +21,11 @@ def guess_extension(file: Path) -> Optional[str]:
     return {".jpeg": ".jpg", ".jfif": ".jpg"}.get(out, out)
 
 
+def get_mime(file: Path) -> str | None:
+    for data in puremagic.magic_file(file):
+        return data.mime_type
+
+
 def plural(
     sing: str,
     count: int = 0,

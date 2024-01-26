@@ -19,6 +19,11 @@ colorama = "^0.4.5"
 puremagic = "^1.15"
 shellingham = "^1.5.0.post1"
 pexpect = "^4.8.0"
+pillow = "^10.2.0"
+ffmpeg-python = "^0.2.0"
+tqdm = "^4.66.1"
+lazy-object-proxy = "^1.10.0"
+jsonpath-ng = "^1.6.1"
 
 
 [tool.poetry.dev-dependencies]
@@ -40,6 +45,8 @@ hrenamer = "essembeh_tools.cli.hrenamer:run"
 pyfdupes = "essembeh_tools.cli.pyfdupes:run"
 remote-borg = "essembeh_tools.cli.remote_borg:run"
 virenamer = "essembeh_tools.cli.virenamer:run"
+video-to-images = "essembeh_tools.cli.video_to_images:run"
+images-to-video = "essembeh_tools.cli.images_to_video:run"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

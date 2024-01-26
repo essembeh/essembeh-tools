@@ -1,9 +1,8 @@
 import logging
 from argparse import ArgumentParser
 
-from essembeh_tools.utils import parser_group
-
 from . import __name__ as app
+from .utils import parser_group
 
 logger = logging.getLogger(app)
 
