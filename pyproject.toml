@@ -16,7 +16,6 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 colorama = "^0.4.5"
-puremagic = "^1.15"
 shellingham = "^1.5.0.post1"
 pexpect = "^4.8.0"
 pillow = "^10.2.0"
@@ -24,6 +23,7 @@ ffmpeg-python = "^0.2.0"
 tqdm = "^4.66.1"
 lazy-object-proxy = "^1.10.0"
 jsonpath-ng = "^1.6.1"
+python-magic = "^0.4.27"
 
 
 [tool.poetry.dev-dependencies]

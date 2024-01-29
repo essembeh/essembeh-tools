@@ -1,9 +1,12 @@
+import mimetypes
 from argparse import _ActionsContainer
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Generator, List, Optional, Tuple, Union
 
-import puremagic
+import magic
+
+mimetypes.init()
 
 
 @contextmanager
@@ -17,13 +20,12 @@ def parser_group(
 
 
 def guess_extension(file: Path) -> Optional[str]:
-    out = puremagic.from_file(file)
-    return {".jpeg": ".jpg", ".jfif": ".jpg"}.get(out, out)
+    if (mime := get_mime(file)) is not None:
+        return mimetypes.guess_extension(mime, strict=False)
 
 
 def get_mime(file: Path) -> str | None:
-    for data in puremagic.magic_file(file):
-        return data.mime_type
+    return magic.from_file(file, mime=True)
 
 
 def plural(
