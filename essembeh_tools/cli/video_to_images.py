@@ -1,6 +1,9 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
+from PIL import Image
+from tqdm import tqdm
+
 from ..colors import Icons, Label
 from ..ffmpeg import Position, extract_frames, get_video_fps
 from ..images import CropFill, Resize, resolution_parse
@@ -49,7 +52,12 @@ def run():
     fps = args.fps or get_video_fps(args.video)
 
     output_folder = args.output or (Path.cwd() / f"{args.video.stem} ({fps:.2f}fps)")
+    print(f"Extract frames to {Label.folder(output_folder)} ...")
     frames = extract_frames(args.video, output_folder, args.start, args.end, fps)
-    print(
-        f"{Icons.OK} {len(frames)} frame(s) extracted to {Label.folder(output_folder)}"
-    )
+    print(f"{Icons.OK} {len(frames)} frames extracted")
+    if args.resize is not None:
+        print(f"Resize frames: {args.resize}")
+        for frame in tqdm(frames, unit="frame"):
+            with Image.open(frame) as img:
+                args.resize.apply(img).save(frame)
+        print(f"{Icons.OK} {len(frames)} frames resized")

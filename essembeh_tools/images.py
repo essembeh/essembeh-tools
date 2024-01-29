@@ -36,6 +36,9 @@ class Resize(ImageFilter):
         out.thumbnail(self.size)
         return out
 
+    def __str__(self) -> str:
+        return f"Resize {self.size[0]}x{self.size[1]}"
+
 
 @dataclass
 class CropFill(ImageFilter):
@@ -43,3 +46,6 @@ class CropFill(ImageFilter):
 
     def apply(self, image: Image.Image) -> Image.Image:
         return ImageOps.fit(image, size=self.size)
+
+    def __str__(self) -> str:
+        return f"Crop {self.size[0]}x{self.size[1]}"

@@ -113,14 +113,19 @@ def extract_frames(
     stream = ffmpeg.input(video, **ffmpeg_kwargs)
     if fps is not None:
         stream = stream.filter("fps", fps=fps)
-    stream.output(f"{output_folder}/%07d.{extension}").overwrite_output().run(
+
+    # check no image already exists
+    for f in output_folder.iterdir():
+        if f.is_file() and fullmatch(r"[0-9]{8}." + extension, f.name) is not None:
+            raise FileExistsError(f"File {f} already exists")
+    stream.output(f"{output_folder}/%08d.{extension}").overwrite_output().run(
         quiet=quiet
     )
     return sorted(
         [
             f
             for f in output_folder.iterdir()
-            if f.is_file() and fullmatch(r"[0-9]{7}." + extension, f.name)
+            if f.is_file() and fullmatch(r"[0-9]{8}." + extension, f.name) is not None
         ]
     )
 
