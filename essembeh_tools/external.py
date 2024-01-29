@@ -65,8 +65,3 @@ class ExternalTool:
     @contextmanager
     def with_command(self, *args) -> Generator[ExternalToolCommand, None, None]:
         yield self.command(*args)
-
-
-FF_PROBE = ExternalTool("ffprobe", binary_envvar="FFPROBE_BIN", check_arg="-version")
-FF_MPEG = ExternalTool("ffmpeg", binary_envvar="FFMPEG_BIN", check_arg="-version")
-MONTAGE = ExternalTool("montage", binary_envvar="MONTAGE_BIN", check_arg="--version")
