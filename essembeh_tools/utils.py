@@ -1,12 +1,11 @@
-import mimetypes
 from argparse import _ActionsContainer
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Generator, List, Optional, Tuple, Union
 
-import magic
+from .external import ExternalTool
 
-mimetypes.init()
+FILE = ExternalTool("file", ["--brief"], check_arg="--version")
 
 
 @contextmanager
@@ -20,12 +19,17 @@ def parser_group(
 
 
 def guess_extension(file: Path) -> Optional[str]:
-    if (mime := get_mime(file)) is not None:
-        return mimetypes.guess_extension(mime, strict=False)
+    out = FILE.command("--extension", file).check_output(encoding="utf8").strip()
+    extensions = list(filter(lambda x: not x == "???", out.split("/")))
+    if "jpg" in extensions:
+        return ".jpg"
+    if len(extensions) > 0:
+        return f".{extensions[0]}"
+    return None
 
 
 def get_mime(file: Path) -> str | None:
-    return magic.from_file(file, mime=True)
+    return FILE.command("--mime-type", file).check_output(encoding="utf8").strip()
 
 
 def plural(

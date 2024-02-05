@@ -21,7 +21,6 @@ ffmpeg-python = "^0.2.0"
 tqdm = "^4.66.1"
 lazy-object-proxy = "^1.10.0"
 jsonpath-ng = "^1.6.1"
-python-magic = "^0.4.27"
 
 
 [tool.poetry.dev-dependencies]
