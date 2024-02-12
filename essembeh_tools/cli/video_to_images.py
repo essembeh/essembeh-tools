@@ -45,9 +45,7 @@ def run():
     parser.add_argument("video", type=Path, help="video to process")
 
     args = parser.parse_args()
-    assert (video_mime := get_mime(args.video)) is not None and video_mime.startswith(
-        "video/"
-    )
+    assert get_mime(args.video).startswith("video/")
 
     fps = args.fps or get_video_fps(args.video)
 

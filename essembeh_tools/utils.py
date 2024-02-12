@@ -28,7 +28,7 @@ def guess_extension(file: Path) -> Optional[str]:
     return None
 
 
-def get_mime(file: Path) -> str | None:
+def get_mime(file: Path) -> str:
     return FILE.command("--mime-type", file).check_output(encoding="utf8").strip()
 
 
